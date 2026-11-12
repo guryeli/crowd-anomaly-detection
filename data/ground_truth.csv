@@ -1,0 +1,13 @@
+video,anomaly_start_sec,anomaly_end_sec,anomaly_type
+# UMN benchmark ground truth.
+# - Crowd-Activity-All.avi: UMN combined video, 11 panic scenes. In the literature
+#   the first panic starts at ~21s (lawn scene1). Source: Mehran et al. (CVPR 2009).
+Crowd-Activity-All.avi,21,258,panic
+# - Side videos (extra videos from Mehran's Social Force Model). They are usually
+#   normal-flow (control) videos and contain no anomaly. If you watch one and see
+#   an anomaly, fill in anomaly_start_sec.
+crowd_mergeSplit.avi,,,
+crowd_plaza1.avi,,,
+crowd_plaza2.avi,,,
+crowd_roi.avi,,,
+crowd_sidewalk.avi,,,

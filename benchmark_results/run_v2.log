@@ -1,0 +1,43 @@
+[INFO] Device=mps → Apple Silicon GPU (Metal Performance Shaders), Python 3.13.3
+[INFO] 6 video, methods=['1', '2']
+[INFO] Frame-skip=0 Seed=42
+
+=== M1-Tracking ===
+[RUN] Crowd-Activity-All.avi
+      alarm=True first_alarm_sec=17.066666666666666 type=collective_panic realtime_fps=46.6
+[RUN] crowd_mergeSplit.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=49.5
+[RUN] crowd_plaza1.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=56.8
+[RUN] crowd_plaza2.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=55.6
+[RUN] crowd_roi.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=50.9
+[RUN] crowd_sidewalk.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=45.8
+
+=== M2-OpticalFlow ===
+[RUN] Crowd-Activity-All.avi
+      alarm=True first_alarm_sec=16.7 type=flow_panic realtime_fps=176.0
+[RUN] crowd_mergeSplit.avi
+      alarm=True first_alarm_sec=34.233333333333334 type=flow_panic realtime_fps=175.8
+[RUN] crowd_plaza1.avi
+      alarm=True first_alarm_sec=43.13333333333333 type=flow_panic realtime_fps=175.9
+[RUN] crowd_plaza2.avi
+      alarm=True first_alarm_sec=15.833333333333334 type=flow_panic realtime_fps=177.1
+[RUN] crowd_roi.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=171.2
+[RUN] crowd_sidewalk.avi
+      alarm=True first_alarm_sec=126.13333333333334 type=flow_panic realtime_fps=138.3
+
+=== COMPARISON ===
+        method  TP  FP  FN  TN  Precision  Recall     F1  AvgLatency_sec  MedianLatency_sec  videos_evaluated
+   M1-Tracking   1   0   0   5        1.0     1.0 1.0000          -3.933             -3.933                 6
+M2-OpticalFlow   1   4   0   1        0.2     1.0 0.3333          -4.300             -4.300                 6
+
+[OUT] per-video CSV : benchmark_results/per_video.csv
+[OUT] summary  CSV : benchmark_results/summary.csv
+[OUT] JSON         : benchmark_results/anomaly_benchmark.json
+
+Figürler için: python -m eval.plot_results --json benchmark_results/anomaly_benchmark.json --out-dir figures
+BENCH_DONE: exit=0

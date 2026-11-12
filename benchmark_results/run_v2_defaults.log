@@ -1,0 +1,43 @@
+[INFO] Device=mps → Apple Silicon GPU (Metal Performance Shaders), Python 3.13.3
+[INFO] 6 video, methods=['1', '2']
+[INFO] Frame-skip=0 Seed=42
+
+=== M1-Tracking ===
+[RUN] Crowd-Activity-All.avi
+      alarm=True first_alarm_sec=18.1 type=collective_panic realtime_fps=44.5
+[RUN] crowd_mergeSplit.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=41.9
+[RUN] crowd_plaza1.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=49.1
+[RUN] crowd_plaza2.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=50.1
+[RUN] crowd_roi.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=49.6
+[RUN] crowd_sidewalk.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=43.7
+
+=== M2-OpticalFlow ===
+[RUN] Crowd-Activity-All.avi
+      alarm=True first_alarm_sec=18.433333333333334 type=flow_sudden_motion realtime_fps=178.1
+[RUN] crowd_mergeSplit.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=177.7
+[RUN] crowd_plaza1.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=181.6
+[RUN] crowd_plaza2.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=144.5
+[RUN] crowd_roi.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=135.1
+[RUN] crowd_sidewalk.avi
+      alarm=False first_alarm_sec=None type=None realtime_fps=155.1
+
+=== COMPARISON ===
+        method  TP  FP  FN  TN  Precision  Recall  F1  AvgLatency_sec  MedianLatency_sec  videos_evaluated
+   M1-Tracking   1   0   0   5        1.0     1.0 1.0          -2.900             -2.900                 6
+M2-OpticalFlow   1   0   0   5        1.0     1.0 1.0          -2.567             -2.567                 6
+
+[OUT] per-video CSV : benchmark_results/per_video.csv
+[OUT] summary  CSV : benchmark_results/summary.csv
+[OUT] JSON         : benchmark_results/anomaly_benchmark.json
+
+Figürler için: python -m eval.plot_results --json benchmark_results/anomaly_benchmark.json --out-dir figures
+BENCH_DONE: exit=0
